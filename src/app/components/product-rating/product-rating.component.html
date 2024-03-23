@@ -1,0 +1,11 @@
+<div>
+    <p>
+        @for(elem of starTemplate; track $index){
+            @if(computedStars() >= elem ){
+                <i class="fa-solid fa-star active"></i>
+            }@else{
+                <i class="fa-solid fa-star unactive"></i>
+            }
+        }
+    </p>
+</div>

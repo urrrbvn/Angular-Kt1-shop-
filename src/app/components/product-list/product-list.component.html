@@ -1,0 +1,11 @@
+<div class="products_list">
+    @for (product of productsService.filteredProducts(); track product.id){
+        <app-product-item
+        [title]="product.title"
+        [category]="product.category"
+        [price]="product.price"
+        [rating]="product.rating"
+        [image]="product.images[1]"
+        />
+    }
+</div>

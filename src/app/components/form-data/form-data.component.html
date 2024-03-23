@@ -1,0 +1,57 @@
+<div class="inputContainer">
+    <div class="first_block">
+        <div class="inputFirstType">
+            <p>Search title:</p>
+            <input type="text" [(ngModel)]="productsService.titleVal">
+        </div>
+        <div class="inputFirstType">
+            <p>Select category:</p>
+            <select [(ngModel)]="productsService.currentCategory" >
+                <option value="">All</option>
+                @for(category of productsService.categoriesVal; track $index){
+                    <option [value]="category">{{category}}</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="second_block">
+        <div class="inputSecondType">
+            <p>Price range: {{productsService.currentPriceRange}} </p>
+            <div class="sliderContaiener"> 
+                <div class="digits">
+                    <p>{{productsService.priceRange[0]}}</p>
+                    <p>{{productsService.priceRange[1]}}</p>
+                </div>
+                <input
+                class="slider" 
+                type="range" 
+                [(ngModel)]="productsService.currentPriceRange"
+                value="12"
+                [min]="productsService.priceRange[0]" 
+                [max]="productsService.priceRange[1]"
+                step="50"
+                >
+            </div>
+        </div>
+        <div class="inputSecondType">
+            <p>
+                Rating range: {{ productsService.currentRating }}
+            </p>
+            <div class="sliderContaiener">
+                <div class="digits">
+                    <p>1</p>
+                    <p>5</p>
+                </div>
+                <input
+                class="slider" 
+                type="range"
+                min="0"
+                max="5"
+                value="productsService.currentRating"
+                step="1"
+                [(ngModel)]="productsService.currentRating"
+                >
+            </div>
+        </div>
+    </div>
+</div>
